@@ -143,8 +143,6 @@ void client_start_gui() {
     tcsetattr(0, TCSANOW, &terminal_settings);
     hide_cursor();
 
-    // todo
-//    state->books_list.loading = true;
     api_send(state->socket_fd, &(message_header) {.type = GET_LISTS, .size = sizeof(message_header)});
 
     while (state->keep_running) {

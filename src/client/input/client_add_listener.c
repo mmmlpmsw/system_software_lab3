@@ -50,16 +50,16 @@ void on_input_task_deadline(client_state* state) {
         client_delete_lists(state);
 }
 
-void on_input_task_description(client_state* state) { //todo (seems like done)
+void on_input_task_description(client_state* state) {
     fprintf(stderr, "We got into input_task_description\n");
     list* current_list = get_list_by_index(state, state->selected_list);
     task* new_task = get_last_task(current_list);
     new_task->description = strdup(state->buffer);
 
-    get_input(state, MAX_DESCRIPTION_SIZE, on_input_task_deadline, "Enter deadline: ");
+    get_input(state, MAX_DESCRIPTION_SIZE, on_input_task_deadline, "Enter deadline: H:M:S d.m.Y");
 }
 
-void on_input_task_name(client_state* state) { //todo (seems like done)
+void on_input_task_name(client_state* state) {
     fprintf(stderr, "We got into input_task_name\n");
     if (strlen(state->buffer) == 0)
         return;
