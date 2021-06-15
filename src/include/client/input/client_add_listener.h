@@ -1,0 +1,1 @@
+void client_add_listener(int key, client_state* state);
